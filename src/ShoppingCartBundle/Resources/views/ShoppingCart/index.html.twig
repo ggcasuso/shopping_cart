@@ -1,0 +1,84 @@
+{% extends 'ShoppingCartBundle::layout.html.twig' %}
+
+{% block body %}
+    <nav class="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="#">Your online store</a>
+            <div class="navbar-right">
+                <div class="container minicart"></div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid breadcrumbBox text-center">
+        <ol class="breadcrumb">
+            {#<li><a href="#">Review</a></li>#}
+            <li class="active"><a href="#">Order</a></li>
+            {#<li><a href="#">Payment</a></li>#}
+        </ol>
+    </div>
+
+    <div class="container text-center">
+
+        <div class="col-md-7 col-sm-12">
+            <h1>Product List</h1>
+            <ul>
+                {% for product in productList %}
+                    <li class="row">
+                    <span class="quantity m-r-50px">
+                        {% if product.soldBy == "units" %}
+                            <input type="hidden"
+                                   id="quantity_{{ product.id }}"
+                                   value="1">
+                            <span>1</span>
+                        {% else %}
+                            <input type="number"
+                                   title="quantity_{{ product.id }}"
+                                   id="quantity_{{ product.id }}"
+                                   value="100" step="10">
+                        {% endif %}
+                    </span>
+                        <span class="itemName">{{ product.name }}</span>
+                        <span class="popbtn"><a class="glyphicon glyphicon-plus"
+                                                onclick="addProduct('{{ product.id }}')"></a></span>
+                        <span class="price">
+                        {{ product.price }} € /
+                            {% if product.soldBy == "units" %}
+                                ud.
+                            {% else %}
+                                100gr.
+                            {% endif %}
+                    </span>
+
+                    </li>
+                {% endfor %}
+
+            </ul>
+        </div>
+
+        <div class="col-md-5 col-sm-12 text-left">
+            <div class="bigcart"></div>
+            <ul id="orderContent">
+
+            </ul>
+            <div class="row totals"
+                 id="orderPrices">
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- The popover content -->
+
+    <div id="popover" style="display: none">
+        <a href="#"><span class="glyphicon glyphicon-pencil"></span></a>
+        <a href="#"><span class="glyphicon glyphicon-remove"></span></a>
+    </div>
+
+    <script>
+
+        var orderId = '{{ orderId }}';
+
+    </script>
+{% endblock %}

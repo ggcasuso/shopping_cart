@@ -1,0 +1,21 @@
+{
+  "name": "shopping_cart",
+  "authors": [
+    "Gabriel <gabriel@gabrielgcasuso.com>"
+  ],
+  "description": "shopping cart bower file",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.7"
+  }
+}

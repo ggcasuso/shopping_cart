@@ -1,0 +1,16 @@
+shopping_cart_homepage:
+    path:     /
+    defaults: { _controller: ShoppingCartBundle:ShoppingCart:index }
+
+shopping_cart_add_product:
+    path:     /order/product/add
+    defaults: { _controller: ShoppingCartBundle:Rest:add }
+    options:
+      expose: true
+
+
+shopping_cart_remove_product:
+    path:     /order/product/remove
+    defaults: { _controller: ShoppingCartBundle:Rest:remove }
+    options:
+      expose: true

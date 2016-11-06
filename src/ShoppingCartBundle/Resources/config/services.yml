@@ -1,0 +1,11 @@
+services:
+
+  shopping_cart.factory.order:
+      class: ShoppingCartBundle\Service\OrderFactory
+
+  shopping_cart.manager.order:
+      class: ShoppingCartBundle\Service\OrderManager
+      arguments:
+          - "@doctrine_mongodb.odm.document_manager"
+          - "@service_container"
+          - "@shopping_cart.factory.order"
