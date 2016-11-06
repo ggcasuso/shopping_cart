@@ -2,11 +2,11 @@ shopping_cart
 =============
 
 A simple shopping cart running in Symfony with MongoDB.
-The shopping cart shows a product list that you can choose, when you add a product to the order, you could have discounts:
- - Menu Discount: You received a 20% off when you choose a menu (Main course, drink and dessert)
- - 3x2 Discount: You received a 3x2 discount adding 3 items of the same product
+The shopping cart shows a product list that you can choose, if you add a product to the order, you can have discounts:
+ - Menu Discount: You receive a 20% off when you choose a menu (Main course, drink and dessert)
+ - 3x2 Discount: You receive a 3x2 discount adding 3 items of the same product
 
-The discount appears automatically in your order.
+The discount will appear automatically in your order.
 
 In this first version, every time you enter in homepage, you create a new order in database to add products.
 
@@ -51,7 +51,7 @@ The server running in http://127.0.0.1:8000, so you're ready to test the project
 Unit Testing
 ============
 
-You could run some unit tests executing the next command in the project root:
+You can run some unit tests executing the next command in the project root:
 
 ```
 phpunit src
