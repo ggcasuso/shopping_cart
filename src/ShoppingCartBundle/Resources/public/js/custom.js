@@ -27,7 +27,7 @@ function addProduct(productId) {
                         '<span class="itemName">' + item.product.name + '</span> ' +
                         '<span class="popbtn" style="padding: 18px;">' +
                         '<a class="glyphicon glyphicon-remove" ' +
-                        'onclick="removeProduct(\''+item.id+'\')">' +
+                        'onclick="removeProduct(\'' + item.id + '\')">' +
                         '</a>' +
 
                         '</span> ' +
@@ -42,11 +42,11 @@ function addProduct(productId) {
                     'Total' +
                     '</span> ' +
                     '<span class="price">' +
-                    order.sub_total+'€ <br>' +
-                    '-'+order.discount+'€<br>'+
-                    order.total+'€ </span> ' +
+                    order.sub_total + '€ <br>' +
+                    '-' + order.discount + '€<br>' +
+                    order.total + '€ </span> ' +
                     '<span class="order"> ' +
-                    '<a class="text-center">ORDER</a>' +
+                    '<a class="text-center" href="/show/' + order.id + '">View your Order</a>' +
                     '</span> ';
 
                 $("#orderContent").html(orderHtmlContent);
@@ -82,9 +82,9 @@ function removeProduct(orderItemId) {
                 'Total' +
                 '</span> ' +
                 '<span class="price">' +
-                order.sub_total+'€ <br>' +
-                '-'+order.discount+'€<br>'+
-                order.total+'€ </span> ' +
+                order.sub_total + '€ <br>' +
+                '-' + order.discount + '€<br>' +
+                order.total + '€ </span> ' +
                 '<span class="order"> ' +
                 '<a class="text-center">ORDER</a>' +
                 '</span> ';

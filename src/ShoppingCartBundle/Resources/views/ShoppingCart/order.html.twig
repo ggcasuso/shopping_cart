@@ -1,0 +1,57 @@
+{% extends 'ShoppingCartBundle::layout.html.twig' %}
+
+{% block body %}
+    <nav class="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="#">Your online store</a>
+            <div class="navbar-right">
+                <div class="container minicart"></div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid breadcrumbBox text-center">
+        <ol class="breadcrumb">
+            <li><a href="/">Order List</a></li>
+            <li><a href="/new">New Order</a></li>
+        </ol>
+    </div>
+
+    <div class="container text-center">
+
+        <div class="col-md-7 col-sm-12">
+            <h1>Items</h1>
+            <ul>
+                {% for orderItem in order.orderItem %}
+                    <li class="row">
+                        <span class="quantity m-r-50px" style="width: 20%;">
+                            {{ orderItem.quantity }}
+                            {% if orderItem.product.soldBy == "units" %}
+                                ud.
+                            {% else %}
+                                gr.
+                            {% endif %}
+                        </span>
+                        <span class="itemName">{{ orderItem.product.name }}</span>
+                        <span class="popbtn"></span>
+                        <span class="price">{{ orderItem.price }} €</span>
+                    </li>
+                {% endfor %}
+
+            </ul>
+            <div class="row totals">
+                <span class="itemName">
+                    Subtotal:<br>
+                    Descuento:<br>
+                    Total
+                </span>
+                <span class="price">
+                    {{ order.subTotal }} € <br>
+                    -{{ order.discount }} €<br>
+                    {{ order.total }}€
+                </span>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

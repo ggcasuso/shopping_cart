@@ -38,6 +38,7 @@ class OrderManager
     public function createOrder()
     {
         $order = $this->orderFactory->createNewOrder();
+        $order->setDate(new \Datetime());
         $this->dm->persist($order);
         $this->dm->flush();
 
@@ -114,7 +115,7 @@ class OrderManager
 
         if ($mainProductsIndex > 0 &&
             $drinkProductsIndex > 0 &&
-            $dessertProductsIndex  > 0
+            $dessertProductsIndex > 0
         ) {
             $menus = min($mainProductsIndex, $drinkProductsIndex, $dessertProductsIndex);
 

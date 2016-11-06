@@ -2,13 +2,18 @@
 
 namespace ShoppingCartBundle\Controller;
 
+use JMS\Serializer\SerializerBuilder;
 use ShoppingCartBundle\Service\OrderManager;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Doctrine\ODM\MongoDB\DocumentManager;
 
 class ShoppingCartController extends Controller
 {
-    public function indexAction()
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function newOrderAction()
     {
         $dm = $this->getDocumentManager();
 
@@ -16,7 +21,7 @@ class ShoppingCartController extends Controller
         $order = $this->getOrderManager()->createOrder();
 
         return $this->render(
-            'ShoppingCartBundle:ShoppingCart:index.html.twig',
+            'ShoppingCartBundle:ShoppingCart:new.html.twig',
             [
                 "productList" => $productList,
                 "orderId" => $order->getId()
@@ -24,6 +29,41 @@ class ShoppingCartController extends Controller
         );
     }
 
+
+    /**
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function orderAction($id)
+    {
+        $dm = $this->getDocumentManager();
+
+        $order = $dm->getRepository("ShoppingCartBundle:Order")->findOneById($id);
+
+        return $this->render(
+            'ShoppingCartBundle:ShoppingCart:order.html.twig',
+            [
+                "order" => $order
+            ]
+        );
+    }
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function listAction()
+    {
+        $dm = $this->getDocumentManager();
+
+        $orderList = $dm->getRepository("ShoppingCartBundle:Order")->findAll();
+
+        return $this->render(
+            'ShoppingCartBundle:ShoppingCart:list.html.twig',
+            [
+                "orderList" => $orderList,
+            ]
+        );
+    }
 
     /**
      * @return DocumentManager

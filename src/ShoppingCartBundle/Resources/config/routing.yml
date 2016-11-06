@@ -1,6 +1,15 @@
 shopping_cart_homepage:
     path:     /
-    defaults: { _controller: ShoppingCartBundle:ShoppingCart:index }
+    defaults: { _controller: ShoppingCartBundle:ShoppingCart:list }
+
+shopping_cart_show_order:
+    path:     /show/{id}
+    defaults: { _controller: ShoppingCartBundle:ShoppingCart:Order }
+
+shopping_cart_new_order:
+    path:     /new
+    defaults: { _controller: ShoppingCartBundle:ShoppingCart:newOrder }
+
 
 shopping_cart_add_product:
     path:     /order/product/add

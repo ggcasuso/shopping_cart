@@ -1,0 +1,37 @@
+{% extends 'ShoppingCartBundle::layout.html.twig' %}
+
+{% block body %}
+    <nav class="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="#">Your online store</a>
+            <div class="navbar-right">
+                <div class="container minicart"></div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid breadcrumbBox text-center">
+        <ol class="breadcrumb">
+            <li class="active"><a href="/">Order List</a></li>
+            <li><a href="/new">New Order</a></li>
+        </ol>
+    </div>
+
+    <div class="container text-center">
+
+        <div class="col-md-7 col-sm-12">
+            <h1>Order List</h1>
+            <ul>
+                {% for order in orderList | reverse %}
+                    <li class="row">
+                        <span class="itemName">{{ order.date | date("M d, Y H:i:s") }}</span>
+                        <span class="popbtn"><a class="glyphicon glyphicon-share-alt"
+                                                href="/show/{{ order.id }}"></a></span>
+                    </li>
+                {% endfor %}
+
+            </ul>
+        </div>
+
+    </div>
+{% endblock %}

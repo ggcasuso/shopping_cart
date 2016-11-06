@@ -12,9 +12,8 @@
 
     <div class="container-fluid breadcrumbBox text-center">
         <ol class="breadcrumb">
-            {#<li><a href="#">Review</a></li>#}
-            <li class="active"><a href="#">Order</a></li>
-            {#<li><a href="#">Payment</a></li>#}
+            <li><a href="/">Order List</a></li>
+            <li class="active"><a href="/new">New Order</a></li>
         </ol>
     </div>
 
@@ -77,8 +76,6 @@
     </div>
 
     <script>
-
         var orderId = '{{ orderId }}';
-
     </script>
 {% endblock %}
