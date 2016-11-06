@@ -10,6 +10,9 @@ The discount appears automatically in your order.
 
 In this first version, every time you enter in homepage, you create a new order in database to add products.
 
+I use a free temporary template for this version downloaded from: http://tutorialzine.com/2014/04/responsive-shopping-cart-layout-twitter-bootstrap-3/
+
+
 Installation Guide
 ==================
 
