@@ -43,6 +43,8 @@ php bin/console server:run
 
 The server running in http://127.0.0.1:8000, so you're ready to test the project.
 
+**Remember to update your parameters.yml with the parameters.yml.dist**
+
 Unit Testing
 ============
 
